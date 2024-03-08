@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import "./App.css";
-import Alert from "./components/Alert";
+import Modal from "./components/Modal";
 import TodoFrom from "./components/Todofrom";
 import { useContext, useState } from "react";
 import { TodoContext } from "./utils/todoContext";
@@ -40,16 +40,16 @@ function App() {
   return (
     <>
       <Header />
-      <TodoFrom />
+      <TodoFrom todoToDeleteOrEdit={todoToDeleteOrEdit} />
       <TodoList
         showBtn={showBtn}
         handleEdit={handleEdit}
         handleDelete={handleDelete}
       />
       {showAlert && (
-        <Alert onCancel={handleCancel} onSubmit={onSubmit}>
+        <Modal onCancel={handleCancel} onSubmit={onSubmit}>
           <h3>Delete this task?</h3>
-        </Alert>
+        </Modal>
       )}
     </>
   );

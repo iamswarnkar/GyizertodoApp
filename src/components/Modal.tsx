@@ -6,7 +6,7 @@ interface Props {
   children: JSX.Element;
 }
 
-export default function Alert({ onSubmit, onCancel, children }: Props) {
+export default function Modal({ onSubmit, onCancel, children }: Props) {
   return createPortal(
     <div className="alert-container">
       <div className="alert">

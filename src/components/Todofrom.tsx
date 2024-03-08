@@ -1,10 +1,15 @@
 import { useContext, useState } from "react";
 import { HiOutlinePlusSm } from "react-icons/hi";
 import { TodoContext } from "../utils/todoContext";
+import { TodosTypes } from "../types/types";
 
-export default function TodoFrom() {
-  const [input, setInput] = useState("");
-  const [title, setTitle] = useState("");
+interface Props {
+  todoToDeleteOrEdit?: TodosTypes;
+}
+
+export default function TodoFrom({ todoToDeleteOrEdit }: Props) {
+  const [input, setInput] = useState(todoToDeleteOrEdit?.title || "");
+  const [title, setTitle] = useState(todoToDeleteOrEdit?.massage || "");
   const { todos = [], setTodos } = useContext(TodoContext);
 
   function handleSave() {
